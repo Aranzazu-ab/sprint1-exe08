@@ -29,5 +29,4 @@ public class ValidationTest {
                 () -> Validation.validateNoNullElements(list)
         );
     }
-
 }

@@ -9,8 +9,7 @@ public class Methods {
         Validation.validateNotNullList(names);
         Validation.validateNoNullElements(names);
         return names.stream()
-                .filter(name -> name.startsWith("A"))
-                .filter(name -> name.length() == 3)
+                .filter(name -> name.startsWith("A") && name.length() == 3)
                 .collect(Collectors.toList());
     }
 
@@ -30,7 +29,7 @@ public class Methods {
                 .collect(Collectors.toList());
     }
 
-    public static List<String> stringsContainingE(List<String> values) {
+    public static List<String> sortedFirstContainingE(List<String> values) {
         Validation.validateNotNullList(values);
         Validation.validateNoNullElements(values);
         return values.stream()
@@ -42,7 +41,7 @@ public class Methods {
                     }
                     return firstContainsE ? -1 : 1;
                 })
-                .toList();
+                .collect(Collectors.toList());
     }
 
     public static List<String> replaceA(List<String> values) {
@@ -51,7 +50,6 @@ public class Methods {
         return values.stream()
                 .map(value -> value.replace("a", "4"))
                 .collect(Collectors.toList());
-
     }
 
     public static List<String> numericStrings(List<String> values) {
@@ -65,6 +63,10 @@ public class Methods {
     public static void printList(List<String> list) {
         Validation.validateNotNullList(list);
         Validation.validateNoNullElements(list);
-        list.forEach(name -> System.out.println(name));
+        list.forEach(System.out::println);
+    }
+
+    public static float calculate(float a, float b, Operation operation) {
+        return operation.operation(a, b);
     }
 }

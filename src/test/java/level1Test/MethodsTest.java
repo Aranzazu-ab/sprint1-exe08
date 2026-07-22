@@ -1,6 +1,7 @@
 package level1Test;
 
 import level1.Methods;
+import level1.Reverse;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -55,5 +56,13 @@ public class MethodsTest {
         assertEquals(expected, Methods.sortByLength(values));
     }
 
-
+    @Test
+    void shouldReverseString() {
+        Reverse reverse =
+                text -> new StringBuilder(text).reverse().toString();
+        assertEquals(
+                "adbmaL",
+                reverse.reverse("Lambda")
+        );
+    }
 }

@@ -1,7 +1,6 @@
 package level1;
 
 import common.Validation;
-
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -20,7 +19,7 @@ public class Methods {
         return namesWithLetterO(names)
                 .stream()
                 .filter(name -> name.length() > 5)
-                .collect(Collectors.toList());
+                .toList();
     }
 
     public static void printList(List<String> list) {
@@ -33,8 +32,7 @@ public class Methods {
         Validation.validateNotNullList(list);
         Validation.validateNoNullElements(list);
         return list.stream()
-                .sorted((a,b)-> Integer.compare(a.length(),b.length()))
-                .collect(Collectors.toList());
+                .sorted((a,b)-> Integer.compare(a.length(),b.length())).toList();
     }
 
     public static List<String> sortByLengthDescending(List<String> list){
@@ -45,4 +43,7 @@ public class Methods {
                 .collect(Collectors.toList());
     }
 
+    public static String reverseText(String text){
+        return new StringBuilder(text).reverse().toString();
+    }
 }

@@ -41,9 +41,9 @@ public class Main {
         System.out.println("List sorted by length, from shortest to longest: ");
         printList(sortByLengthDescending(numbersAndWords));
 
+        Reverse reverse = Methods::reverseText;
         System.out.println("********************************");
-        System.out.println("String with reverse method: ");
-        Reverse reverseText = text -> new StringBuilder(text).reverse().toString();
-        System.out.println(reverseText.reverse("String"));
+        System.out.println("String with reverse method:");
+        System.out.println(reverse.reverse("String"));
     }
 }

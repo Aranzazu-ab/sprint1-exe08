@@ -3,6 +3,8 @@ package level2;
 import java.util.Arrays;
 import java.util.List;
 
+import static level2.Operations.calculate;
+
 public class Main {
     public static void main(String[] args) {
 
@@ -34,19 +36,11 @@ public class Main {
         );
         System.out.println("****************************************");
 
-        Operation addition = (a, b) -> a + b;
-        Operation subtraction = (a, b) -> a - b;
-        Operation multiplication = (a, b) -> a * b;
-        Operation division = (a, b) -> a / b;
         System.out.println("Operations by interface: 20 , 2");
-        System.out.println("Addition: " +
-                addition.operation(20, 2));
-        System.out.println("Subtraction: " +
-                subtraction.operation(20, 2));
-        System.out.println("Multiplication: " +
-                multiplication.operation(20, 2));
-        System.out.println("Division: " +
-                division.operation(20, 2));
+        System.out.println("Addition 20 + 2: "+calculate(20,2, Operations.addition));
+        System.out.println("Substraction 20 - 2: "+calculate(20,2, Operations.subtraction));
+        System.out.println("Multiplication 20 * 2: "+calculate(20,2, Operations.multiplication));
+        System.out.println("Division 20/2: "+calculate(20,2, Operations.division));
         System.out.println("****************************************");
 
         List<String> stringsAndNumbers = Arrays.asList(
@@ -70,7 +64,7 @@ public class Main {
 
         System.out.println("Strings that containing 'e' first:");
         Methods.printList(
-                Methods.stringsContainingE(stringsAndNumbers)
+                Methods.sortedFirstContainingE(stringsAndNumbers)
         );
         System.out.println("****************************************");
 
@@ -85,5 +79,4 @@ public class Main {
                 Methods.numericStrings(stringsAndNumbers)
         );
     }
-
 }
